@@ -30,25 +30,25 @@ if __name__ == '__main__':
     # print(help(Reflect))
 
     module_name = "reflect.reflectTestData"
-    from_list = "from reflect.reflectTestData import MethodDemo"
+    from_name = "from reflect.reflectTestData import MethodDemo"
     args = (1, 2)
     class_name = "MethodDemo"
 
     print("reflect module method(include args)")
-    reflect = Reflect(module_name, from_list, "method1", args)
+    reflect = Reflect(module_name, from_name, "method1", args)
     print(reflect.run())
 
     print("\nreflect class method(include args)")
     # reflect class method(include args)
-    reflect = Reflect(module_name, from_list, "class_method1", args, class_name)
+    reflect = Reflect(module_name, from_name, "class_method1", args, class_name)
     print(reflect.run())
 
     print("\nreflect module method(no args)")
-    reflect = Reflect(module_name, from_list, "method2")
+    reflect = Reflect(module_name, from_name, "method2")
     print(reflect.run())
 
     print("\nreflect class method(no args)")
-    reflect = Reflect(module_name, from_list, "class_method2", class_name=class_name)
+    reflect = Reflect(module_name, from_name, "class_method2", class_name=class_name)
     print(reflect.run())
 
 ```
