@@ -14,13 +14,13 @@ class Reflect(object):
         """
         self.module_name = module_name
         self.method_name = method_name
-        self.from_list = from_name
+        self.from_name = from_name
         self.args = args
         self.class_name = class_name
 
     def run(self):
         """ run reflect"""
-        mod = __import__(module_name, fromlist=list(from_list))
+        mod = __import__(self.module_name, fromlist=list(self.from_name))
 
         if self.class_name != "":
             if hasattr(mod, self.class_name):
@@ -30,7 +30,7 @@ class Reflect(object):
                     if len(self.args) == 0:
                         return func(clazz)
 
-                    return func(clazz, *args)
+                    return func(clazz, *self.args)
                 else:
                     raise Exception("Class %s have no method %s" % (self.class_name, self.method_name))
             else:
@@ -41,7 +41,7 @@ class Reflect(object):
                 if len(self.args) == 0:
                     return func()
 
-                return func(*args)
+                return func(*self.args)
             else:
                 raise Exception("Module %s have no method %s" % (self.module_name, self.method_name))
 
