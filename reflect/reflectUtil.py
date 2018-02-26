@@ -49,23 +49,23 @@ class Reflect(object):
 if __name__ == '__main__':
     print(help(Reflect))
 
-    module_name = "reflect.reflectTestData"
-    from_name = "from reflect.reflectTestData import MethodDemo"
-    args = (1, 2)
-    class_name = "MethodDemo"
+    test_module_name = "reflect.reflectTestData"
+    test_from_name = "from reflect.reflectTestData import MethodDemo"
+    test_args = (1, 2)
+    test_class_name = "MethodDemo"
 
-    reflect = Reflect(module_name, from_name, "method1", args)
+    reflect = Reflect(test_module_name, test_from_name, "method1", test_args)
     print(reflect.run())
     print("=" * 30)
 
-    reflect = Reflect(module_name, from_name, "class_method1", args, class_name)
+    reflect = Reflect(test_module_name, test_from_name, "class_method1", test_args, test_class_name)
     print(reflect.run())
     print("=" * 30)
 
-    reflect = Reflect(module_name, from_name, "method2")
+    reflect = Reflect(test_module_name, test_from_name, "method2")
     print(reflect.run())
     print("=" * 30)
 
-    reflect = Reflect(module_name, from_name, "class_method2", class_name=class_name)
+    reflect = Reflect(test_module_name, test_from_name, "class_method2", class_name=test_class_name)
     print(reflect.run())
     print("=" * 30)
